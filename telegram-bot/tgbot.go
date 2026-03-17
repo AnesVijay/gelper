@@ -14,7 +14,9 @@ func BotInit() (*tgbotapi.BotAPI, error) {
 		return nil, err
 	}
 
-	bot.Debug = true
+	if config.Conf.LogLevel == 0 {
+		bot.Debug = true
+	}
 
 	if len(config.Conf.Telegram.ProxyURL) > 0 {
 		proxyURL, _ := url.Parse(config.Conf.Telegram.ProxyURL)
