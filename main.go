@@ -39,7 +39,7 @@ func main() {
 
 		switch update.Message.Command() {
 		case "start":
-			msg.Text = fmt.Sprintf("ChatID: %d", update.Message.Chat.ID)
+			msg.Text = fmt.Sprintf("ChatID: `%d`", update.Message.Chat.ID)
 		}
 
 		if _, err := tgbot.Send(msg); err != nil {
